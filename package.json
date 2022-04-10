@@ -35,7 +35,7 @@
   "main": "next.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tosinkoa/Big-C.git"
+    "url": "git+https://github.com/Tosinkoa/Big-C.git/"
   },
   "author": "Paul Ojo",
   "license": "MIT",
