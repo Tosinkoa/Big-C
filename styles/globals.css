@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*___________________________Home  /   Market________________________________*/
+.caroverlay {
+  @apply flex justify-center items-center opacity-0 bg-gradient-to-t from-gray-800 via-gray-800 group-hover:opacity-50 absolute top-0 left-0 h-full w-full rounded-md z-10;
+}
+
+/*________________Header__________*/
+.header {
+  @apply max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-1;
+}
+
+.myheader {
+  @apply relative flex items-center justify-between h-16;
+}
+
+.theheader {
+  @apply absolute inset-y-0 left-0 flex items-center sm:hidden;
+}
+
+.headerdisclosurebutton {
+  @apply inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white;
+}
+
+.headerimages {
+  @apply flex-1 flex items-center justify-center sm:items-stretch sm:justify-start;
+}
+.avatarandothers {
+  @apply absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0;
+}
+
+.mybutton {
+  @apply bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white;
+}
+
+.menubutton {
+  @apply bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white;
+}
+
+.accounttoggle {
+  @apply block px-4 py-2 text-sm text-gray-700;
+}
+
+.menuitems {
+  @apply origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-100 ring-1 ring-black ring-opacity-5 focus:outline-none z-10;
+}
+
+.mobileteneryoption {
+  @apply text-gray-300 focus:bg-blue-400 hover:bg-blue-400 focus:ring focus:ring-blue-100 active:bg-blue-400 hover:text-white
+  px-3 py-1 rounded-md text-lg mt-1 font-medium w-full text-left;
+}
+
+.largescreentenery {
+  @apply text-gray-300 hover:bg-blue-400 hover:text-white block px-3 py-2 rounded-md focus:bg-blue-400 focus:ring focus:ring-blue-100 active:bg-blue-400 text-base font-medium;
+}
+
+/*________________________________Footer___________________________________*/
+
+.footerlinks {
+  @apply text-xs lg:text-sm leading-none text-gray-50;
+}
+
+.socialmedialogo {
+  @apply text-gray-50 cursor-pointer text-2xl;
+}
+
+/*______________________________Profile______________________________*/
+
+.roundedprofile {
+  @apply inset-0 m-auto w-24 h-24 absolute bottom-0 -mb-12 xl:ml-10 rounded-full border-2 shadow border-white;
+}
+
+.profileidentity {
+  @apply text-center xl:text-left mb-3 xl:mb-0 flex flex-col xl:flex-row items-center justify-between xl:justify-start;
+}
+
+.profiletext {
+  @apply text-gray-600 dark:text-gray-400 font-bold text-xl xl:text-2xl leading-6 mb-2 text-center;
+}
+
+.profilename {
+  @apply mb-3 xl:mb-0 xl:mr-4 text-2xl text-gray-800  font-medium tracking-normal cursor-default;
+}
+
+.profilestatus {
+  @apply text-sm bg-indigo-700 dark:bg-indigo-600 text-white px-5 py-1 font-normal rounded-full cursor-default;
+}
+
+.profiledescription {
+  @apply text-center xl:text-left mt-2 text-sm tracking-normal text-gray-700  leading-5  cursor-default;
+}
+
+.profilecontactbutton {
+  @apply focus:outline-none ml-0 md:ml-5 bg-indigo-700 dark:bg-indigo-600 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-3 md:px-6 py-2 focus:bg-indigo-400 text-sm;
+}
+
+.workingstatusone {
+  @apply w-full xl:w-2/3 flex-col md:flex-row justify-center xl:justify-end flex md:pl-6;
+}
+
+.workstat {
+  @apply xl:px-10 xl:border-l xl:border-r w-full py-5 flex items-start justify-center xl:w-1/3 cursor-default;
+}
+
+.workingstatustwo {
+  @apply flex items-center justify-center xl:justify-start mt-1 md:mt-0 mb-5 md:mb-0;
+}
+
+.workingstatusthree {
+  @apply rounded-full text-gray-800 text-sm px-10 py-2 flex justify-center items-center animate-bounce bg-gray-200 -mb-3 shadow-md;
+}
+
+.availablestatus {
+  @apply ml-5 rounded-full bg-green-200 text-green-800 text-sm px-6 py-2 flex justify-center items-center cursor-default;
+}
+
+.reviewrejectapproved {
+  @apply text-gray-800 text-sm xl:text-xl leading-5;
+}
+
+/*____________________________ProfileForm________________________________*/
+
+.profilesetupheader {
+  @apply container mx-auto bg-gray-100 rounded overflow-hidden;
+}
+
+.profilesetupline {
+  @apply xl:w-full border-b border-gray-500  py-5 bg-gray-100;
+}
+
+.setupheadertext {
+  @apply text-lg text-gray-800  font-bold;
+}
+
+.coverpicsone {
+  @apply absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded;
+}
+
+.coverpicstwo {
+  @apply flex items-center px-3 py-2 rounded absolute right-0 mr-4 mt-4 cursor-pointer;
+}
+
+.profilepics {
+  @apply w-20 h-20 rounded-full bg-cover bg-center bg-no-repeat absolute bottom-0 -mb-10 ml-12 shadow flex items-center justify-center;
+}
+
+.editprofilepics {
+  @apply absolute z-0 h-full w-full object-cover  shadow top-0 left-0 bottom-0 right-0;
+}
+
+.coverpicsoverlay {
+  @apply absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded-full z-0;
+}
+
+.mylabel {
+  @apply pb-2 text-sm font-bold text-gray-800;
+}
+
+.profilesetupinput {
+  @apply border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500;
+}
+
+.formname {
+  @apply border border-gray-600 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 bg-transparent placeholder-gray-500 text-gray-800;
+}
+
+.formdescription {
+  @apply bg-transparent border border-gray-600  pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 resize-none placeholder-gray-500 text-gray-800;
+}
+
+/*___________________________________New-Car_______________________________*/
+.newcaricon {
+  @apply w-48 h-48 p-16 bg-gray-100 text-gray-600 text-3xl rounded-md flex items-center justify-center;
+}
+
+.imageinput {
+  @apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-100 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-100 focus:border-blue-600 focus:outline-none;
+}
+
+.nameandprice {
+  @apply w-3/4 focus:outline-none placeholder-gray-500 py-3 px-3 text-sm leading-none text-gray-800 bg-white border rounded border-gray-200;
+}
+
+.mytextera {
+  @apply py-3 pl-3 overflow-y-auto h-24 border rounded border-gray-200 w-full resize-none focus:outline-none;
+}
+
+.sellyourcar {
+  @apply bg-gray-100 rounded-tl-md rounded-tr-md px-4 md:px-8 md:py-4 py-7 flex items-center justify-between;
+}
+
+.newcarbackground {
+  @apply bg-gray-100 rounded-md shadow overflow-hidden sm:h-auto w-10/12 md:w-8/12 lg:w-1/2 2xl:w-2/5;
+}
+
+.sellbutton {
+  @apply px-6 py-3  bg-blue-700 hover:bg-blue-600 shadow rounded text-sm text-white;
+}
+
+.cancelbutton {
+  @apply px-6 py-3 bg-gray-500 hover:bg-gray-700 shadow rounded text-sm text-white;
+}
+
+/*____________________Login / Signin_________________________________*/
+
+.authbackground {
+  @apply h-full bg-gradient-to-tl from-blue-300 to-indigo-800 w-full py-10 px-4;
+}
+
+.formerror {
+  @apply text-red-500 text-sm flex;
+}
+
+.authform {
+  @apply bg-white border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2;
+}
+
+.formshowpassword {
+  @apply absolute right-0 mt-2 mr-3 border-none cursor-pointer;
+}
+
+.authformbutton {
+  @apply focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full;
+}
+
+.authformlabel {
+  @apply text-sm font-medium leading-none text-gray-800;
+}
+
+/*__________________________________Sellers______________________________*/
+.thesellermaintext {
+  @apply xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto;
+}
+
+.thesellerbg {
+  @apply lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around;
+}
+
+.sellersimagebg {
+  @apply xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5;
+}
+
+.sellersimage {
+  @apply rounded-full object-cover h-full w-full shadow-md;
+}
