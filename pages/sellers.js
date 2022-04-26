@@ -1,23 +1,22 @@
 import Image from "next/image";
 import Layout from "@/components/Layout";
 import Authorization from "@/HOC/Authorization";
-import { useGetAllProfilesQuery } from "@/store/ReduxStore/fetcherApi";
+import { useGetAllProfilesQuery } from "@/store/fetcherApi";
 
 function Sellers() {
-  const { data: allProfiles, isLoading, error } = useGetAllProfilesQuery();
+  const { data: allProfiles, isLoading } = useGetAllProfilesQuery();
 
   return (
     <Layout>
-      <div className="container flex justify-center  mx-auto pt-16">
+      <div className="container flex justify-center  mx-auto pt-4">
         <div>
-          <p className="text-gray-500 text-lg text-center font-normal pb-3">SELLERS</p>
           <h1 className="thesellermaintext">
-            View Buyers Profile Here, You Might Be Lucky To Find Your Dream Car Too.
+            View Sellers Profile Here, You Might Be Lucky To Find Your Dream Car Too.
           </h1>
         </div>
       </div>
       {isLoading && <p>Loading...</p>}
-      {allProfiles?.map((profiles, i) => {
+      {allProfiles?.map((profiles, i) => (
         <div key={i} className="w-full bg-gray-100 px-10 pt-10">
           <div className="container mx-auto">
             <div className="thesellerbg">
@@ -28,7 +27,7 @@ function Sellers() {
                       <Image
                         width={400}
                         height={400}
-                        src="/assets/images/d17.jpg"
+                        src={profiles.profileImage}
                         alt="profile"
                         className="sellersimage"
                       />
@@ -43,8 +42,8 @@ function Sellers() {
               </div>
             </div>
           </div>
-        </div>;
-      })}
+        </div>
+      ))}
     </Layout>
   );
 }

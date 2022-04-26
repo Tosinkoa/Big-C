@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { AiOutlineCar } from "react-icons/ai";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useRouter } from "next/router";
-import { useRegisterUserMutation } from "@/store/ReduxStore/fetcherApi";
+import { useRegisterUserMutation } from "@/store/fetcherApi";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import MyInput from "@/components/Formik";
@@ -40,6 +40,13 @@ function Signup() {
     }
   };
 
+  //------------Submitting Form---------------
+  const submitForm = async (values) => {
+    await registerUser(values);
+
+    router.push("/profile");
+  };
+
   const thedate = new Date();
   const year = thedate.getFullYear();
 
@@ -57,10 +64,7 @@ function Signup() {
           <Formik
             initialValues={{ name: "", email: "", password: "", secPassword: "" }}
             validationSchema={validation}
-            onSubmit={(values) => {
-              registerUser(values);
-              router.push("/profile");
-            }}
+            onSubmit={submitForm}
           >
             {() => (
               <Form>

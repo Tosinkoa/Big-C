@@ -11,7 +11,7 @@ export default function MyInput({ label, ...props }) {
   );
 }
 
-export function MySelect({ label, name, options }) {
+export function MySelect({ label, name, options, ...props }) {
   const [field, meta] = useField(name);
 
   return (
@@ -19,10 +19,10 @@ export function MySelect({ label, name, options }) {
       <label className="mylabel" htmlFor={name}>
         {label}
       </label>
-      <select {...field}>
+      <select {...field} {...props}>
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.name}
+          <option key={option.name} value={option.value}>
+            {option.value}
           </option>
         ))}
       </select>

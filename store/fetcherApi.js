@@ -12,10 +12,12 @@ export const fetcherApi = createApi({
       //________Authentication
       registerUser: build.mutation({
         query: (body) => ({ url: "register", method: "post", body }),
+        invalidatesTags: ["UserData"],
       }),
 
       loginUser: build.mutation({
         query: (body) => ({ url: "login", method: "post", body }),
+        invalidatesTags: ["UserData"],
       }),
 
       getAuth: build.query({
@@ -39,11 +41,11 @@ export const fetcherApi = createApi({
 
       //__________Profile
       postProfile: build.mutation({
-        query: () => ({ url: "create-profile", method: "post" }),
+        query: (body) => ({ url: "create-profile", method: "post", body }),
         invalidatesTags: ["UserData"],
       }),
 
-      getAllProfiles: build.query({ query: () => ({ url: "all-profiles" }) }),
+      getAllProfiles: build.query({ query: () => ({ url: "all-profiles" }), providesTags: ["UserData"] }),
 
       getProfile: build.query({
         query: () => ({ url: "profile/me" }),
@@ -57,7 +59,7 @@ export const fetcherApi = createApi({
       }),
 
       putCar: build.mutation({
-        query: ({ id, values }) => ({
+        query: ({ id, formData }) => ({
           url: `update-car/${id}`,
           method: "put",
           body: values,

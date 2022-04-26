@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Layout from "@/components/Layout";
-import Pagination from "@/components/Pagination";
 import { GiBinoculars } from "react-icons/gi";
-import { useGetAllCarsQuery } from "@/store/ReduxStore/fetcherApi";
+import { useGetAllCarsQuery } from "@/store/fetcherApi";
 import Link from "next/link";
 
 const Market = () => {
@@ -36,7 +35,7 @@ const Market = () => {
                       width={600}
                       height={400}
                       className="rounded-md w-full"
-                      src="/assets/images/d17.jpg"
+                      src={cars.carImage}
                       alt="A girl Posing Img"
                     />
                     <div className=" absolute bottom-0 p-8 w-full opacity-0 group-hover:opacity-100 z-20">
@@ -49,7 +48,7 @@ const Market = () => {
                     </div>
                   </div>
 
-                  <p className="  text-xl leading-5 text-gray-600 md:mt-6 mt-4">{cars.carName}</p>
+                  <p className="text-xl leading-5 text-gray-600 md:mt-6 mt-4">{cars.carName}</p>
                   <p className=" font-semibold text-xl leading-5 text-gray-800 mt-4">
                     <span>$</span> {cars.carPrice}
                   </p>
@@ -57,12 +56,6 @@ const Market = () => {
               </Link>
             ))}
           </div>
-
-          {/* _______________________________________________________ */}
-
-          <Pagination />
-
-          {/* _______________________________________________________ */}
         </div>
       </div>
     </Layout>

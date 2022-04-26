@@ -3,7 +3,9 @@ import { fetcherApi } from "./fetcherApi";
 import { setupListeners } from "@reduxjs/toolkit/dist/query";
 
 const store = configureStore({
-  reducer: { [fetcherApi.reducerPath]: fetcherApi.reducer },
+  reducer: {
+    [fetcherApi.reducerPath]: fetcherApi.reducer,
+  },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(fetcherApi.middleware),
 });
 setupListeners(store.dispatch);

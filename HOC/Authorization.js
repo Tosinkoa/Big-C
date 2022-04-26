@@ -1,37 +1,22 @@
-// import { useRouter } from "next/router";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-// import { useGetAuthQuery } from "@/store/ReduxStore/fetcherApi";
+import { useGetAuthQuery } from "@/store/fetcherApi";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default (ChildComponent) => {
   const composeComponent = (props) => {
-    // const router = useRouter();
+    const router = useRouter();
+    const result = useGetAuthQuery();
 
-    // const getLoggedIn = async () => {
-    //   const loggedInRes = await axios.get("http://localhost:5000/auth");
-    //   console.log(loggedInRes);
-    //   if (loggedInRes?.data === false) {
-    //     router.push("/login");
-    //   }
-    // };
-
-    // useEffect(() => {
-    //   getLoggedIn();
-    // }, []);
-
-    // const { authData } = useGetAuthQuery();
-
-    // console.log(authData);
-
-    // useEffect(() => {
-    //   if (authData === false) {
-    //     router.push("/login");
-    //   }
-    // }, []);
+    useEffect(() => {
+      if (result?.data === false) {
+        router.push("/login");
+      }
+    }, [result]);
 
     return (
       <div>
-        <ChildComponent {...props} />
+        {result?.data === true && !result.isLoading && <ChildComponent {...props} />}
+        {result.isLoading && <p>Loading</p>}
       </div>
     );
   };

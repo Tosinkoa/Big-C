@@ -4,6 +4,7 @@ import Authorization from "@/HOC/Authorization";
 
 const NewCar = () => {
   const newCar = {
+    carImage: "",
     carName: "",
     carPrice: "",
     carDescription: "",

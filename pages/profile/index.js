@@ -2,45 +2,42 @@ import Layout from "@/components/Layout";
 import Image from "next/image";
 import { FaDollarSign } from "react-icons/fa";
 import Link from "next/link";
-import { FiEdit } from "react-icons/fi";
 import Authorization from "@/HOC/Authorization";
-import { useGetProfileQuery, useGetUserQuery } from "@/store/ReduxStore/fetcherApi";
+import { useGetProfileQuery, useGetUserQuery } from "@/store/fetcherApi";
 import MyCars from "@/components/MyCars";
 
 function Profile() {
   const { data: profileData } = useGetProfileQuery();
   const { data: userData } = useGetUserQuery();
 
+  console.log(profileData);
+
   return (
     <Layout>
-      <div className="flex items-center justify-center mt-8 mx-auto w-4/5 ">
+      <div className="flex items-center justify-center mt-8 mx-auto w-full ">
         {/* Card code block start */}
-        <div className="bg-gray-300 shadow rounded-lg">
+        <div className="bg-gray-300 shadow rounded-lg w-4/5">
           <div className="relative ">
-            <button className="w-full">
-              <div className="coverpicstwo">
-                <p className="text-xs text-gray-100">Change Cover Photo</p>
-                <div className="ml-2 text-gray-100">
-                  <FiEdit />
-                </div>
-              </div>
+            <div className="flex flex-col text-center mx-auto ">
               <Image
-                className="h-1/6 shadow rounded-t w-full object-cover object-center"
-                src="/assets/images/d17.jpg"
+                className="h-1/6 shadow rounded-t w-full object-cover  object-center"
+                src={ profileData?.coverImage ?? "/assets/images/no-bg-image.png"}
                 alt="profile"
-                width={1000}
+                width={400}
                 height={200}
                 objectFit="cover"
               />
-            </button>
-            <button className="roundedprofile">
+            </div>
+            <div className="roundedprofile">
               <Image
                 className="w-full h-full z-10 overflow-hidden object-cover rounded-full"
-                src="/assets/images/d17.jpg"
-                alt="profile-image"
-                layout="fill"
+                src={ profileData?.profileImage ?? "/assets/images/no-bg-image.png"}
+                alt="profile"
+                width={200}
+                height={200}
+                objectFit="cover"
               />
-            </button>
+            </div>
           </div>
           <div className="px-5 xl:px-10 pb-10 mt-2">
             <div className="flex justify-center xl:justify-end w-full pt-16 xl:pt-5"></div>

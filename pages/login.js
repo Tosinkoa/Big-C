@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { AiOutlineCar } from "react-icons/ai";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { useRouter } from "next/router";
-import { useLoginUserMutation } from "@/store/ReduxStore/fetcherApi";
+import { useLoginUserMutation } from "@/store/fetcherApi";
 import MyInput from "@/components/Formik";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -17,6 +17,17 @@ function Login() {
     email: Yup.string().required("Email is required").email("Please enter a valid email"),
     password: Yup.string().required("Password is required"),
   });
+
+  //------------Submitting Form---------------
+  const submitForm = async (values) => {
+    const result = await loginUser(values);
+    if (result?.error?.status !== undefined) {
+      console.log(result)
+      console.log((result.error.data.errors[0].msg))
+    } else {
+      router.push("/profile");
+    }
+  };
 
   const showPasswordHandler = () => {
     if (showPassword === "password") {
@@ -40,14 +51,7 @@ function Login() {
           <p aria-label="Login to your account" className="text-2xl font-extrabold leading-6 text-gray-800">
             Login to your account
           </p>
-          <Formik
-            initialValues={{ email: "", password: "" }}
-            onSubmit={(values) => {
-              loginUser(values);
-              router.push("/profile");
-            }}
-            validationSchema={validation}
-          >
+          <Formik initialValues={{ email: "", password: "" }} onSubmit={submitForm} validationSchema={validation}>
             {() => (
               <Form>
                 <div className="mt-5">

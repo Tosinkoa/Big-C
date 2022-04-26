@@ -1,19 +1,20 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { AiOutlineCar } from "react-icons/ai";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useLogoutUserMutation } from "@/store/ReduxStore/fetcherApi";
+import { useGetProfileQuery, useLogoutUserMutation } from "@/store/fetcherApi";
 import { useDispatch } from "react-redux";
-import { fetcherApi } from "@/store/ReduxStore/fetcherApi";
+import { fetcherApi } from "@/store/fetcherApi";
 
 export default function Header() {
   const dispatch = useDispatch();
   const router = useRouter();
 
   const [logoutUser] = useLogoutUserMutation();
+  const { data: profileData } = useGetProfileQuery();
 
   return (
     <Disclosure as="nav" className="bg-blue-800">
@@ -61,7 +62,7 @@ export default function Header() {
                       <span className="sr-only">Open user menu</span>
                       <Image
                         className=" rounded-full w-auto h-8"
-                        src="/assets/images/d17.jpg"
+                        src={profileData ? profileData.profileImage : "/assets/images/no-profile-image.jpg"}
                         width="40"
                         height="40"
                         alt="profile"
